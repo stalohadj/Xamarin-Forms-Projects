@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PriveSportsEmployees.Views.LoadingPage" xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:vm="clr-namespace:PriveSportsEmployees.ViewModels">
+     <ContentPage.BindingContext>
+        <vm:LoadingViewModel/>
+    </ContentPage.BindingContext>
+    <ContentView BackgroundColor="Black">
+         <StackLayout BackgroundColor="Black" VerticalOptions="Center">
+               <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+             <Image Source="trans_logo.png" WidthRequest="250" HeightRequest="250" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            <lottie:AnimationView x:Name="lottie" Animation="load.json" RepeatMode="Infinite" AutoPlay="True" WidthRequest="250" HeightRequest="250" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+
+         </StackLayout>
+    </ContentView>
+</ContentPage>
+

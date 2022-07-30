@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PriveSportsEmployees.ViewModels"
+    x:Class="PriveSportsEmployees.Views.RedeemPointsPage" Title="Rewards">
+    <ContentPage.BindingContext>
+        <local:RedeemPointsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+<StackLayout BackgroundColor="White" >
+
+      <ListView Margin="0,0" x:Name="list"
+              ItemsSource="{Binding Rew}"  
+              HasUnevenRows="True"  
+              BackgroundColor="White" 
+              RefreshCommand="{Binding RefreshCommand}"
+              IsRefreshing="{Binding IsRefreshing}"
+              IsPullToRefreshEnabled="True">  
+        <ListView.ItemTemplate>  
+            <DataTemplate>  
+                <ViewCell>
+        <StackLayout Padding="20">
+           <Grid BackgroundColor="White">
+          <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+                  <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0"
+                              FontSize="16" FontAttributes="Bold" Grid.ColumnSpan="6"/>
+                   <Label Text="{Binding Points_Disp}" Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0"
+                              FontSize="16" />
+                 <Button BackgroundColor="#E96C20" Text="REDEEM" FontSize="14" TextColor="White" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" Command="{Binding Source={RelativeSource AncestorType={x:Type local:RedeemPointsViewModel}}, Path=redeemCommand}" CommandParameter="{Binding ID}" HorizontalOptions="End"/>
+               
+               </Grid>
+            </StackLayout>
+        </ViewCell>  
+            </DataTemplate>  
+        </ListView.ItemTemplate>  
+      </ListView>
+</StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+        <!--
+        <StackLayout BackgroundColor="White">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+            <ListView BackgroundColor="White" ItemsSource="{Binding Employees}" HasUnevenRows="True" Margin="10,10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                          <StackLayout Padding="11">
+                            <Grid BackgroundColor="White" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                               
+               
+                                
+                                
+                                <Label Text="{Binding EmployeeName}" 
+                                       FontSize="14"
+                                       Grid.RowSpan="3"
+                                       FontAttributes="Bold"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                               
+                                       Grid.ColumnSpan="5"
+
+                                       VerticalTextAlignment="Start"/>
+                                <Label Text="{Binding Designation}" FontSize="15" Grid.Column="0" Grid.ColumnSpan="5" VerticalTextAlignment="End" Grid.Row="1" ></Label>
+
+
+                                <Button BackgroundColor="#E96C20" Text="REDEEM" FontSize="14" TextColor="White" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" Command="{Binding Source={RelativeSource AncestorType={x:Type local:EmployeeListViewModel}}, Path=redeemCommand}" CommandParameter="{Binding EmployeeId}" HorizontalOptions="End"/>
+                                 
+                  
+                            </Grid>
+                          </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>-->
+
+        

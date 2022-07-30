@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+         xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+         xmlns:vm="clr-namespace:PriveSports.ViewModels"
+         x:Class="PriveSports.Views.FeedbackPage" NavigationPage.HasNavigationBar="False">
+</pages:PopupPage>
+    <ContentPage.BindingContext>
+        <vm:FeedbackViewModel/>
+    </ContentPage.BindingContext>
+     <Grid BackgroundColor="{AppThemeBinding Dark=#E96C20, Light=#E96C20}" RowDefinitions="2*, *">
+        <Grid>
+            <Path Aspect="Fill" Data="M0,0H375V403.469S278.054,480,184.3,480,0,403.469,0,403.469Z">
+                <Path.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#1E1D1A" Offset="0"/>
+                        <GradientStop Color="#2C2925" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="logo.png" WidthRequest="250" HeightRequest="250" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Grid>
+          <StackLayout Grid.Row="1" Grid.RowSpan="2" Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+            <Frame HasShadow="False" WidthRequest="{OnIdiom Tablet=350, Desktop=350, Default=250}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"
+                   CornerRadius="35" Padding="30" BackgroundColor="White">
+                <Grid x:Name="loginView" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout BackgroundColor="White"  Spacing="30">
+                        <StackLayout Spacing="15">
+                            <Label Text="USER FEEDBACK" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <StackLayout BackgroundColor="White"  Spacing="4">
+                                <Grid BackgroundColor="White"  HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Entry BackgroundColor="White" Text="{Binding Feedback}" Placeholder="Type you feedback here!" Keyboard="Text" FontSize="16" HorizontalOptions="FillAndExpand"/>
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+                        <Button Text="Send" Command="{Binding sendfeedback}"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+           </StackLayout>
+     </Grid>
+</ContentPage>

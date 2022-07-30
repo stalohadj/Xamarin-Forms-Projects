@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ReleaseVersion>0.13</ReleaseVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
+    <PackageReference Include="Behaviors.Forms" Version="1.4.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.2" />
+    <PackageReference Include="FreshMvvm" Version="4.0.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.1" />
+    <PackageReference Include="OneSignalSDK.Xamarin" Version="4.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Rg.Plugins.Popup" />
+    <None Remove="Xam.Plugin.DeviceInfo" />
+    <None Remove="Com.Airbnb.Xamarin.Forms.Lottie" />
+    <None Remove="RewardsService\" />
+    <None Remove="Behaviors.Forms" />
+    <None Remove="Xamarin.CommunityToolkit" />
+    <None Remove="FreshMvvm" />
+    <None Remove="PropertyChanged.Fody" />
+    <None Remove="OneSignalSDK.Xamarin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controls\IDevice.cs" />
+    <Compile Remove="Views\WeclomePage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\WeclomePage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\WelcomPage.xaml.cs">
+      <DependentUpon>WelcomPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

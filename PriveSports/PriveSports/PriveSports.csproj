@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ReleaseVersion>0.15</ReleaseVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="XLabs.Forms" Version="2.0.5782" />
+    <PackageReference Include="XLabs.Core" Version="2.0.5782" />
+    <PackageReference Include="XLabs.Serialization" Version="2.0.5782" />
+    <PackageReference Include="XLabs.IoC" Version="2.0.5782" />
+    <PackageReference Include="XLabs.Platform" Version="2.0.5782" />
+    <PackageReference Include="ExifLib.PCL" Version="1.0.1" />
+    <PackageReference Include="Xamarin.Forms.DataGrid" Version="4.8.0" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="Com.OneSignal" Version="3.10.6" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2401" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="MainPage.xaml" />
+    <EmbeddedResource Remove="Views\FeedbackPopupPage.xaml" />
+    <EmbeddedResource Remove="Views\FeedbackPage.xaml" />
+    <EmbeddedResource Remove="Views\TransactionPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MainPage.xaml.cs" />
+    <Compile Remove="Views\FeedbackPopupPage.xaml.cs" />
+    <Compile Remove="Views\FeedbackPage.xaml.cs" />
+    <Compile Remove="ViewModels\FeedbackViewModel.cs" />
+    <Compile Remove="Utils\TransData.cs" />
+    <Compile Remove="DataModels\Transaction.cs" />
+    <Compile Remove="DataModels\TransactionInfoRepository.cs" />
+    <Compile Remove="Views\TransactionPage.xaml.cs" />
+    <Compile Remove="AssemblyInfo.cs" />
+    <Compile Remove="CrossGeofenceListener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\UserPagev2.xaml.cs">
+      <DependentUpon>UserPagev2.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TranscationPage.xaml.cs">
+      <DependentUpon>TranscationPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="System.Drawing.Common" />
+  </ItemGroup>
+</Project>

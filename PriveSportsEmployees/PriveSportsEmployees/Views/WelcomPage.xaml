@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:PriveSportsEmployees.ViewModels"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+     xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    x:Class="PriveSportsEmployees.Views.WelcomPage" Title="Welcome">
+      <ContentPage.BindingContext>
+        <vm:WelcomViewModel/>
+    </ContentPage.BindingContext>
+    <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+        <StackLayout BackgroundColor="White" Spacing="0" Padding="40">
+            <yummy:PancakeView Margin="0,32,0,0" BackgroundColor="#E96C20" Padding="20,0"
+                               HorizontalOptions="FillAndExpand" HeightRequest="150" CornerRadius="20">
+
+                 <Label Text="{Binding occupation}" HorizontalTextAlignment="Center" FontSize="30"
+                       HorizontalOptions="Center" VerticalOptions="Center" TextColor="#000000" />
+
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow x:Name="shadow" Color="Gray" Offset="30, 30"/>
+                </yummy:PancakeView.Shadow>
+
+            </yummy:PancakeView>
+
+            <Label Text=""/>
+            <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>
+
+            <Label Text="{Binding name}" HorizontalTextAlignment="Center" FontSize="25"
+                       HorizontalOptions="Center" VerticalOptions="Center" TextColor="#000000"/>
+
+            <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>
+           <lottie:AnimationView x:Name="lottie" Animation="welcm.json" RepeatMode="Infinite" AutoPlay="True" WidthRequest="200" HeightRequest="200" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+           
+             <Label Padding="10"></Label>
+     
+        </StackLayout>
+    </ContentView>
+</ContentPage>
+

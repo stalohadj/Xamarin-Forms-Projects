@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:PriveSports.ViewModels" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="PriveSports.Views.TransactionPagev2" Title="logo.png">
+    <ContentPage.BindingContext>
+        <vm:Transaction2ViewModel/>
+    </ContentPage.BindingContext>
+    <ContentView ControlTemplate="{StaticResource GeneralTemplate}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+<StackLayout  VerticalOptions= "FillAndExpand" BackgroundColor="White" >
+     <ScrollView VerticalOptions= "FillAndExpand"  BackgroundColor="White">
+        <StackLayout BackgroundColor="White" >
+         <ListView  
+              ItemTapped="ListViewItem_Tabbed"  
+              ItemsSource="{Binding Transactions}"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding RefreshCommand}"
+              IsRefreshing="{Binding IsRefreshing}"
+              HasUnevenRows="True"  
+              BackgroundColor="White">  
+        <ListView.ItemTemplate>  
+            <DataTemplate>  
+                <ViewCell>  
+                    <StackLayout Padding="20">
+                        <Grid BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Place new controls here -->
+                            
+                                    <!-- MEDIUM fFONT FOR IPHONE -->
+                            <Button Grid.Column="0" Text="{Binding refer}"  
+                                    WidthRequest="150"
+                                    HeightRequest="50"
+                                    FontSize="13"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="#E96C20"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:Transaction2ViewModel}}, Path=LoadTransactionCommand}"
+                                    CommandParameter="{Binding passthrough}"
+                                    TextColor="White"/>
+                            <Label Grid.Column="1" Text="{Binding Details}"
+                                   FontAttributes="Italic"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="Center"
+                                   FontFamily="Normal"
+                                   FontSize="15"
+                                   TextColor="Black"/>
+                        </Grid>
+                        <StackLayout IsVisible="{Binding Isvisible}"  
+                                     Orientation="Horizontal"  
+                                     Margin="0,0,80,0">  
+                        </StackLayout>  
+                    </StackLayout>  
+                </ViewCell>  
+            </DataTemplate>  
+        </ListView.ItemTemplate>  
+    </ListView>
+          </StackLayout>
+        
+   </ScrollView>
+       <!-- <Button VerticalOptions="EndAndExpand" HeightRequest="10" Text="Refresh" Command="{Binding RefreshCommand}"/>-->
+     </StackLayout>
+    </ContentView>
+</ContentPage>

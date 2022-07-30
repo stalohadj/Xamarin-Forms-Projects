@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:PriveSportsEmployees.ViewModels"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    x:Class="PriveSportsEmployees.Views.UserViewpage" Title="POINTS AND BALANCE">
+    <ContentPage.BindingContext>
+        <vm:UserViewModel/>
+    </ContentPage.BindingContext>
+    <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+
+        <StackLayout BackgroundColor="White" Spacing="0" Padding="40">
+            
+           <Label HorizontalTextAlignment="Center" Text="MY BALANCE" FontSize="30"/>
+
+
+            <yummy:PancakeView VerticalOptions="Center" Grid.Row="1" Grid.RowSpan="2" x:Name="gradient" Margin="0,32,0,0" BackgroundGradientStartPoint="0,0"
+                               BackgroundGradientEndPoint="1,1" 
+                               HorizontalOptions="FillAndExpand" WidthRequest="80" HeightRequest="200" CornerRadius="100">
+                <yummy:PancakeView.BackgroundGradientStops>
+                    <yummy:GradientStopCollection>
+                        <yummy:GradientStop x:Name="backgroundGradientColor1" Color="#E96C20" Offset="0" />
+                        <yummy:GradientStop x:Name="backgroundGradientColor2" Color="#e95829" Offset="1" />
+                    </yummy:GradientStopCollection>
+
+                </yummy:PancakeView.BackgroundGradientStops>
+                <Grid Margin="10,20">
+                <Label Text="{Binding balance_}" TextColor="White" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" />
+                <Label Text="{Binding realbalance_}" TextColor="LightGray" HorizontalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="Center" FontSize="35" IsVisible="{Binding isVis}" />
+                </Grid>
+                       <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow x:Name="shadow" Color="Gray" Offset="30, 30"/>
+                </yummy:PancakeView.Shadow>
+            </yummy:PancakeView>
+
+   <lottie:AnimationView x:Name="lottie" Animation="arrows.json" RepeatMode="Infinite" AutoPlay="True" WidthRequest="200" HeightRequest="200" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+           
+            <Button Grid.Row="0"  Text="REEDEM POINTS" Command="{Binding RedeemPointsCmd}" VerticalOptions="EndAndExpand"/>
+
+
+
+        </StackLayout>
+    </ContentView>
+</ContentPage>

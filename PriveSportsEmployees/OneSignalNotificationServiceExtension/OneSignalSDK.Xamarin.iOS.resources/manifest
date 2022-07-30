@@ -1,0 +1,12 @@
+﻿<BindingAssembly>
+	<NativeReference Name="OneSignal.xcframework">
+		<Kind>Framework</Kind>
+		<ForceLoad>True</ForceLoad>
+		<SmartLink>False</SmartLink>
+		<Frameworks>SystemConfiguration UserNotifications WebKit CoreGraphics UIKit</Frameworks>
+		<WeakFrameworks></WeakFrameworks>
+		<LinkerFlags></LinkerFlags>
+		<NeedsGccExceptionHandling></NeedsGccExceptionHandling>
+		<IsCxx></IsCxx>
+	</NativeReference>
+</BindingAssembly>

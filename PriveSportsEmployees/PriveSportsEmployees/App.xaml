@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="PriveSportsEmployees.App">
+    <Application.Resources>
+         <Color x:Key="PrimaryColor">#2C2925</Color>
+         <Color x:Key="SecondaryColor">#1E1D1A</Color>
+         <Color x:Key="EntryColor">White</Color>
+         <Color x:Key="DarkBgColor">#2C2925</Color>
+         <Color x:Key="DarkTextColor">#2C2925</Color>
+         <Color x:Key="DarkElementColor">#2C2925</Color>
+
+        <yummy:GradientStopCollection x:Key="Rainbow">
+                <yummy:GradientStop Color="#f3855b" Offset="0" />
+                <yummy:GradientStop Color="#fbcf93" Offset="0.2" />
+                <yummy:GradientStop Color="#fbe960" Offset="0.4" />
+                <yummy:GradientStop Color="#a0e67a" Offset="0.6" />
+                <yummy:GradientStop Color="#33c6ee" Offset="0.8" />
+                <yummy:GradientStop Color="#c652ba" Offset="1" />
+        </yummy:GradientStopCollection>
+
+         <Style TargetType="Label">
+           <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkTextColor}, Light=Black}"/>
+         </Style>
+        <Style TargetType="BoxView"
+                   x:Key="SeparatorBoxView">
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="Color" Value="Gray"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Opacity" Value="0.1"/>
+            </Style>
+         <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkTextColor}, Light=Black}"/>
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark=#707070}"/>
+         </Style>
+
+        <Style x:Key="stlMainFrame" TargetType="Frame">
+            <Setter Property="TranslationY"    Value="{OnPlatform iOS='-150', Android='-33'}"/> 
+            <Setter Property="HeightRequest"   Value="{OnPlatform iOS='200', Android='228'}"/>
+            <Setter Property="HasShadow"       Value="False" />
+        </Style>
+
+        
+        <Style TargetType="Button">
+            <Setter Property="WidthRequest" Value="{OnIdiom Tablet=450, Desktop=450, Default=350}"/>
+            <Setter Property="HeightRequest" Value="{OnIdiom Tablet=70, Desktop=70, Default=60}"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="{OnIdiom Tablet=20, Desktop=20, Default=16}"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+                    <!--{DynamicResource PrimaryColor}"/>-->
+
+            <Setter Property="CornerRadius" Value="{OnIdiom Tablet=30, Desktop=30, Default=25}"/>
+        </Style>
+
+        <Style TargetType="ImageButton">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+
+    </Application.Resources>
+</Application>

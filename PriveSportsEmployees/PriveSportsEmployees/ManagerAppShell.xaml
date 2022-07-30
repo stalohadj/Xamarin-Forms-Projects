@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell BackgroundColor="#0c0c0c"
+    xmlns:vm="clr-namespace:PriveSportsEmployees.ViewModels"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    FlyoutBackgroundColor="White"
+    xmlns:views="clr-namespace:PriveSportsEmployees.Views"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PriveSportsEmployees.ManagerAppShell">
+        <Shell.BindingContext>
+        <vm:PunchViewModel/>
+    </Shell.BindingContext>
+   <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeColor">#E96C20</Color>
+            <Color x:Key="GrayColor">Gray</Color>
+            <Color x:Key="BgColor">#1E1D1A</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource BgColor}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource GrayColor}"/>
+                <Setter Property="Shell.TitleColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BgColor}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource GrayColor}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource ThemeColor}"/>
+                 <Setter Property="Shell.FlyoutBackgroundColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}"/>
+        </ResourceDictionary>
+    </Shell.Resources>
+   
+    <Shell.FlyoutHeaderTemplate>
+         <DataTemplate >
+            <Grid BackgroundColor="Black"
+                  HeightRequest="200">
+                <Image Aspect="AspectFill"
+                       Source="clear_logo.png"
+                       Opacity="0.6" />
+                <Label Text="Menu"
+                       TextColor="White"
+                       FontSize="Large" 
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </Grid>            
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Welcome"  Icon="hello.png" Style="{StaticResource BaseStyle}">
+         <ShellContent Title="Welcome" ContentTemplate="{DataTemplate views:WelcomPage}" Shell.TabBarIsVisible="false" />
+    </FlyoutItem>
+
+      <FlyoutItem Title="Points Balance and History" Icon="balance.png"  Style="{StaticResource BaseStyle}">
+           <Tab Title="Points Balance" Icon="balance.png" IsVisible="True" Style="{StaticResource BaseStyle}">
+            <ShellContent ContentTemplate="{DataTemplate views:UserViewpage}"/>
+        </Tab>
+         <Tab Title="Points History" Icon="history.png" IsVisible="True" Style="{StaticResource BaseStyle}">
+            <ShellContent ContentTemplate="{DataTemplate views:PointsHistoryPage}"/>
+        </Tab>
+    </FlyoutItem>
+      
+     <FlyoutItem Title="Suggest Rewards"  Icon="reward.png"  Style="{StaticResource BaseStyle}">
+         <ShellContent Title="Reward Suggestions" ContentTemplate="{DataTemplate views:RewardSuggestionsPage}" Shell.TabBarIsVisible="false" />
+     </FlyoutItem>
+
+
+       
+
+    <FlyoutItem Title="Time and Attendance" Icon="punch.png">
+       
+        <Tab Title="{Binding loc_}" Icon="loc.png" IsVisible="{Binding isvis}" Style="{StaticResource BaseStyle}">
+            <ShellContent ContentTemplate="{DataTemplate views:PunchPage  }"/>
+        </Tab>
+         <Tab Title="{Binding conf}" Icon="{Binding img}" IsVisible="{Binding isvis}" Style="{StaticResource BaseStyle}">
+            <ShellContent ContentTemplate="{DataTemplate views:PunchPage}"/>
+        </Tab>
+        
+    </FlyoutItem>
+
+
+       
+     
+      <!-- <MenuItem Text="Check Coordinates"
+          Icon="compass.jpg"
+          Command="{Binding Coordinates}"/>-->
+    <MenuItem Text="Logout"
+          Icon="logoutx.png"
+          Command="{Binding LogoutCmd}"/>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout BackgroundColor="LightGray">
+                <Label Text="Privé Sports Employees"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+                <Label Text="Powered by MMH Systems Development Ltd"
+                       TextColor="Black"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+
+</Shell>

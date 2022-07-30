@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    x:Class="PriveSports.Views.EditPage" Title="logo.png">
+  <ContentPage.BindingContext>
+        <vm:EditDetailsViewModel/>
+    </ContentPage.BindingContext>
+     <ContentView ControlTemplate="{StaticResource GeneralTemplate}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+         <Grid  BackgroundColor="#f4f4f4">
+       
+         <Image Grid.Row="0" Grid.RowSpan="4" Source="usericon.jpg" HeightRequest="350" VerticalOptions="Start" />   
+          
+         <Frame VerticalOptions="EndAndExpand" Grid.Row="4" Grid.RowSpan="6" Padding="30" CornerRadius="60" Style="{StaticResource stlMainFrame}" BackgroundColor="White">
+                   <Grid Grid.Row="0" Padding="20,10,25,0" ColumnSpacing="1" RowSpacing="2" BackgroundColor="White"> 
+                   <Grid.ColumnDefinitions>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="*"/>
+                   </Grid.ColumnDefinitions> 
+                   <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>  
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/> 
+                   </Grid.RowDefinitions>
+                       
+                   <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Name: " FontAttributes="Bold" FontSize="20"/>
+                     <Entry Grid.Row = "0" Grid.ColumnSpan="2" Grid.RowSpan="1" BackgroundColor="#F8AB7C" Grid.Column="2" Text="{Binding N}" />
+                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" Text="Phone: " FontSize="20"/>
+                             <Entry Grid.Row = "1" Grid.ColumnSpan="2" Grid.RowSpan="1" BackgroundColor="#F8AB7C" Grid.Column="2" Text="{Binding P}" Keyboard="Telephone"/>
+                   <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" Text="Birthday: " FontSize="20"/>
+                         <DatePicker Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1" BackgroundColor="#F8AB7C" Grid.Column="2"  Format="dd/MM/yyyy"
+                                                  TextColor="Black"
+                                                  Date="{Binding B}"/>
+                            
+                 <Label Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="4" FontAttributes="Bold" Text="Gender: " FontSize="20"/>
+                               <Picker  Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="1"  Grid.Column="2" x:Name="picker" 
+                                             BackgroundColor="#F8AB7C"
+                                             TextColor="Black"
+                                             Title="{Binding G}"
+                                            TitleColor="Black"
+                                            SelectedItem="{Binding G}">
+                                  <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}" >
+                                        <x:String>Female</x:String>
+                                        <x:String>Male</x:String>
+                                        <x:String>Prefer Not to Say</x:String> 
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                    </Picker>
+                 <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" Text="Zip Code: " FontSize="20"/>
+                              <Entry Grid.Row = "4" Grid.ColumnSpan="2" BackgroundColor="#F8AB7C" Grid.Column="2" Text="{Binding Z}"  Keyboard="Numeric"/>
+                <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" Text="Email: " FontSize="20"/>
+                     <Entry Grid.Row = "5" Grid.ColumnSpan="2"  Grid.RowSpan="1" BackgroundColor="#F8AB7C" Grid.Column="2" Text="{Binding E}" Keyboard="Email" />
+
+                             <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="{DynamicResource PrimaryColor}" Text="SAVE"  FontAttributes="Bold" FontSize="16" HeightRequest="55" WidthRequest="130" Command="{Binding SaveCmd}"   HorizontalOptions="StartAndExpand"
+                                     VerticalOptions="Center"/> 
+                             <Button Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" TextColor="White" BackgroundColor="{DynamicResource PrimaryColor}" Text="CANCEL"  FontAttributes="Bold" FontSize="16" HeightRequest="55" WidthRequest="130" Command="{Binding CancelCmd}"   HorizontalOptions="End"
+                                     VerticalOptions="Center"/>
+                    </Grid>
+
+                       </Frame>
+               
+         </Grid>
+
+     </ContentView>
+
+</ContentPage>
+
+<!--<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    x:Class="PriveSports.Views.EditPage" Title="logo.png">
+  <ContentPage.BindingContext>
+        <vm:EditDetailsViewModel/>
+    </ContentPage.BindingContext>
+     <ContentView ControlTemplate="{StaticResource GeneralTemplate}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+         <Grid  BackgroundColor="#f4f4f4">
+       
+         <Image Grid.Row="0" Grid.RowSpan="4" Source="usericon.jpg" HeightRequest="350" VerticalOptions="Start" />   
+          
+         <Frame VerticalOptions="EndAndExpand" Grid.Row="4" Grid.RowSpan="6" Padding="30" CornerRadius="60" Style="{StaticResource stlMainFrame}" BackgroundColor="White">
+                   <Grid Grid.Row="0" Padding="20,10,25,0" ColumnSpacing="1" RowSpacing="2" BackgroundColor="White"> 
+                   <Grid.ColumnDefinitions>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="*"/>
+                   </Grid.ColumnDefinitions> 
+                   <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>  
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/> 
+                   </Grid.RowDefinitions>
+                       
+                   <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Name: " FontAttributes="Bold" FontSize="20"/>
+                     <Entry Grid.Row = "0" Grid.ColumnSpan="2" Grid.RowSpan="1" BackgroundColor="#F8AB7C" Grid.Column="2" Text="{Binding N}" />
+                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" Text="Phone: " FontSize="20"/>
+                             <Entry Grid.Row = "1" Grid.ColumnSpan="2" Grid.RowSpan="1" BackgroundColor="#F8AB7C" Grid.Column="2" Text="{Binding P}" Keyboard="Telephone"/>
+                   <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" Text="Birthday: " FontSize="20"/>
+                         <DatePicker Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1" BackgroundColor="#F8AB7C" Grid.Column="2"  Format="dd/MM/yyyy"
+                                                  TextColor="Black"
+                                                  Date="{Binding B}"/>
+                            
+                 <Label Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="4" FontAttributes="Bold" Text="Gender: " FontSize="20"/>
+                               <Picker  Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="1"  Grid.Column="2" x:Name="picker" 
+                                             BackgroundColor="#F8AB7C"
+                                             TextColor="Black"
+                                             Title="{Binding G}"
+                                            TitleColor="Black"
+                                            SelectedItem="{Binding G}">
+                                  <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}" >
+                                        <x:String>Female</x:String>
+                                        <x:String>Male</x:String>
+                                        <x:String>Prefer Not to Say</x:String> 
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                    </Picker>
+                 <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" Text="Zip Code: " FontSize="20"/>
+                              <Entry Grid.Row = "4" Grid.ColumnSpan="2" BackgroundColor="#F8AB7C" Grid.Column="2" Text="{Binding Z}"  Keyboard="Numeric"/>
+                <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" Text="Email: " FontSize="20"/>
+                     <Entry Grid.Row = "5" Grid.ColumnSpan="2"  Grid.RowSpan="1" BackgroundColor="#F8AB7C" Grid.Column="2" Text="{Binding E}" Keyboard="Email" />
+
+                             <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="{DynamicResource PrimaryColor}" Text="SAVE"  FontAttributes="Bold" FontSize="16" HeightRequest="55" WidthRequest="130" Command="{Binding SaveCmd}"   HorizontalOptions="StartAndExpand"
+                                     VerticalOptions="Center"/> 
+                             <Button Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" TextColor="White" BackgroundColor="{DynamicResource PrimaryColor}" Text="CANCEL"  FontAttributes="Bold" FontSize="16" HeightRequest="55" WidthRequest="130" Command="{Binding CancelCmd}"   HorizontalOptions="End"
+                                     VerticalOptions="Center"/>
+                    </Grid>
+
+                       </Frame>
+
+           
+               
+         </Grid>
+
+     </ContentView>
+
+</ContentPage>-->

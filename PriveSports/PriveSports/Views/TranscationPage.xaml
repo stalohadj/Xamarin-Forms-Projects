@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d"
+    x:Class="PriveSports.Views.TranscationPage" Title="logo.png">
+     <ContentPage.BindingContext>
+        <vm:TransactionPageViewModel/>
+    </ContentPage.BindingContext>
+     <ContentView ControlTemplate="{StaticResource GeneralTemplate}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+         <ScrollView>
+        <StackLayout BackgroundColor="White">
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+            <lottie:AnimationView x:Name="lottie" Animation="cart.json" RepeatMode="Infinite" AutoPlay="True" WidthRequest="350" HeightRequest="350" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame OutlineColor="#E96C20" BackgroundColor="White">
+                <Label Text="Register to view your transactions!" FontSize="Medium"/>
+                </Frame>
+            </StackLayout>
+         </StackLayout>
+      </StackLayout>
+         </ScrollView>
+    </ContentView>
+</ContentPage>
+

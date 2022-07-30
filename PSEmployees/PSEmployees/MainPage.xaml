@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="PSEmployees.MainPage">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackLayout Margin="0, 0, 0, 0" 
+                         Padding="{OnPlatform Android='10, 15', iOS='10, 40, 10, 15'}"
+                         Orientation="Horizontal"
+                         BackgroundColor="Purple"
+                         Spacing="15">
+                <Image Source="menu"
+                       VerticalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMenuTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Xamarin Month 2020"
+                       TextColor="White"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       VerticalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+        </Grid>
+        
+        <StackLayout Grid.Row="1">
+            <Label Text="Welcome to Xamarin Code Snippets for Xamarin Month 2020!"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </Grid>
+    
+</ContentView>

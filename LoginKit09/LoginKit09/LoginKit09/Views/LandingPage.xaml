@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:LoginKit09.ViewModels"
+             x:Class="LoginKit09.Views.LandingPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:LandingViewModel/>
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="{AppThemeBinding Dark=#242323, Light=#F3F2F2}" RowDefinitions="2*, *">
+        <Grid>
+            <Path Aspect="Fill" Data="M0,0H375V403.469S278.054,480,184.3,480,0,403.469,0,403.469Z">
+                <Path.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#4D40D7" Offset="0"/>
+                        <GradientStop Color="#1909C0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="streaks.png" WidthRequest="80" HeightRequest="80" HorizontalOptions="Center"/>
+                <Label Text="STREAKS &amp; BURGERS" TextColor="White" Opacity="0.6" CharacterSpacing="5" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+        <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SignInCommand}"/>
+            </StackLayout.GestureRecognizers>
+            <Image Source="arrowRightWhite.png" HorizontalOptions="Center"/>
+            <Label Text="Proceed" HorizontalOptions="Center"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

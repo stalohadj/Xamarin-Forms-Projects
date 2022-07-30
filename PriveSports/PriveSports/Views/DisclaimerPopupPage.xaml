@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rg:PopupPage
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rg="http://rotorgames.com" xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    HasSystemPadding="False"
+    x:Class="PriveSports.Views.DisclaimerPopupPage">
+    <ContentPage.BindingContext>
+        <vm:DisclaimerPopupViewModel/>
+    </ContentPage.BindingContext>
+     <StackLayout Padding="20,20,20,20"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center">
+      <StackLayout Grid.Row="1" Grid.RowSpan="2" Spacing="30" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White">
+            <Frame HasShadow="False" WidthRequest="{OnIdiom Tablet=350, Desktop=350, Default=250}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                   CornerRadius="35" Padding="30" BackgroundColor="White">
+                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout BackgroundColor="#E96C20" Padding="10" Spacing="30">
+                        <Grid BackgroundColor="#E96C20" Padding="10" HorizontalOptions="FillAndExpand">
+                         <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                        <StackLayout Spacing="15">
+                         <Label Text="PRIVACY DISCLOSURE" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Start"/>
+                         <Label Text="This needs app collects location data to enable the delivery of notifications if the user is nearby to one of our store branches even when the app is in the background. This data will not be shared with any third-party applications. If you don't feel comfortable with this permission you can go to settings and modify it at any time. " FontSize="Body"/>
+                        </StackLayout>
+                           </Grid>
+                     </StackLayout>  
+                </Grid>
+            </Frame>
+        </StackLayout>
+         <Button Clicked="OnClose"
+                 Text="ACCESS LOCATION"
+                 Command="{Binding GoHomeCommand}"/>
+    </StackLayout>
+</rg:PopupPage>
+

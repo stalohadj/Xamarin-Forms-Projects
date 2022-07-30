@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:PriveSports.Views"
+             xmlns:p="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d" Shell.NavBarIsVisible="False"
+             x:Class="PriveSports.AppShell">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeColor">#E96C20</Color>
+            <Color x:Key="GrayColor">Gray</Color>
+            <Color x:Key="BgColor">#1E1D1A</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource BgColor}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource GrayColor}"/>
+                <Setter Property="Shell.TitleColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BgColor}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource ThemeColor}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource GrayColor}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource ThemeColor}"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}"/>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <Tab Title="Shop" Icon="shoe.png" >
+            <ShellContent ContentTemplate="{DataTemplate views:ShopPage}"/>
+        </Tab>
+        <Tab Title="My Points" Icon="star.png">
+            <ShellContent ContentTemplate="{DataTemplate views:PointsPage}"/>
+        </Tab>
+        <Tab Title="My Transactions" Icon="sales2.png">
+            <ShellContent ContentTemplate="{DataTemplate views:TranscationPage}"/>
+            
+        </Tab>
+        <Tab Title="My Details" Icon="user2.png">
+            <ShellContent ContentTemplate="{DataTemplate views:UserPage}"/>
+            
+        </Tab>
+    </TabBar>
+
+</Shell>

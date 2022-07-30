@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ESAOK.Views.LinksListView"  xmlns:local="clr-namespace:ESAOK.ViewModels" 
+             BackgroundColor="White"
+             x:Name="LinksViewModel">
+     <ContentPage.BindingContext>  
+        <local:LinksViewModel/>
+    </ContentPage.BindingContext>
+     <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{Binding PlatformSpecificImage}" />
+           
+           <ToolbarItem Name="               " />
+           <ToolbarItem Name="ΑΝΑΚΟΙΝΩΣΕΙΣ"/>
+           <ToolbarItem Name="             " />
+        <ToolbarItem Command="{Binding WebsiteCommand}" Text="WEBSITE "/>
+          
+    </ContentPage.ToolbarItems>
+      <ListView Margin="0,0"  
+              ItemTapped="ListViewItem_Tabbed"
+              ItemsSource="{Binding Links}"  
+              HasUnevenRows="True"  
+              BackgroundColor="White"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding RefreshCommand}"
+              IsRefreshing="{Binding IsRefreshing}">  
+        <ListView.ItemTemplate>  
+            <DataTemplate>  
+                <ViewCell>  
+                    <StackLayout Padding="10">  
+                        <Label Text="{Binding Category}"  
+                               FontSize="Large"  
+                               TextColor="Black"/>  
+                        <StackLayout IsVisible="true"  
+                                     Orientation="Horizontal"  
+                                     Margin="0,0,80,0">
+                            <StackLayout>
+              
+                                        <Label>
+                         <Label.FormattedText>
+                             
+                         <FormattedString>
+             <Span Text="{Binding Title}"
+                   FontSize="20" FontAttributes="Bold"/>
+                             
+             <Span Text="{Binding Details}"
+                   FontSize="Body"/>
+                            
+           <Span Text="{Binding link}"
+                  TextColor="Blue"
+                  TextDecorations="Underline"
+                  FontSize="Medium">
+                <Span.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={x:Reference LinksViewModel}, Path = BindingContext.TapCommand}"
+                                          CommandParameter="{Binding link}" />
+                </Span.GestureRecognizers>
+            </Span>
+        </FormattedString>
+    </Label.FormattedText>
+</Label>
+                                
+                                </StackLayout>
+                        </StackLayout>  
+                    </StackLayout>  
+                </ViewCell>  
+            </DataTemplate>  
+        </ListView.ItemTemplate>  
+    </ListView>  
+</ContentPage>

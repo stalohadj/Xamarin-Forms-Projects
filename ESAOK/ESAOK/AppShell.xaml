@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:ESAOK.Views"
+             xmlns:p="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             Shell.NavBarIsVisible="True"
+             x:Class="ESAOK.AppShell">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeColor">#E96C20</Color>
+            <Color x:Key="GrayColor">Gray</Color>
+            <Color x:Key="BgColor">#1E1D1A</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#0054a5"/>
+                <Setter Property="Shell.ForegroundColor" Value="White"/>
+                <Setter Property="Shell.UnselectedColor" Value="#01b802"/>
+                <Setter Property="Shell.TitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#0054a5"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#01b802"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}"/>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+    
+        <Tab Title="ΑΝΑΚΟΙΝΩΣΕΙΣ" Icon="linkicon.png">
+            <ShellContent ContentTemplate="{DataTemplate views:LinksListView}"/>
+        </Tab>
+            <Tab Title="ΗΜΕΡΟΛΟΓΙΟ" Icon="calendaricon.png" >
+            <ShellContent ContentTemplate="{DataTemplate views:SimplePage}"/>
+        </Tab>
+       
+    </TabBar>
+</Shell>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginKit09.App">
+    <Application.Resources>
+        <Color x:Key="PrimaryColor">#4E35D9</Color>
+        <Color x:Key="SecondaryColor">#1909C0</Color>
+        <Color x:Key="EntryColor">White</Color>
+        <Color x:Key="DarkBgColor">#191919</Color>
+        <Color x:Key="DarkTextColor">#CECECE</Color>
+        <Color x:Key="DarkElementColor">#ECECEC</Color>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkTextColor}, Light=Black}"/>
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkTextColor}, Light=Black}"/>
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark=#707070}"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="WidthRequest" Value="{OnIdiom Tablet=250, Desktop=250, Default=150}"/>
+            <Setter Property="HeightRequest" Value="{OnIdiom Tablet=60, Desktop=60, Default=50}"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="{OnIdiom Tablet=20, Desktop=20, Default=16}"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}"/>
+            <Setter Property="CornerRadius" Value="{OnIdiom Tablet=30, Desktop=30, Default=25}"/>
+        </Style>
+        <Style TargetType="ImageButton">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+    </Application.Resources>
+</Application>

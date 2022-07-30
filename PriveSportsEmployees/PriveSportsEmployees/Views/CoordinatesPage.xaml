@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:PriveSportsEmployees.ViewModels"
+    
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="PriveSportsEmployees.Views.CoordinatesPage"  Title="Coordinates">
+       <ContentPage.BindingContext>
+        <vm:CoordinatesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+        <ScrollView>
+        <StackLayout BackgroundColor="White" Spacing="100" Padding="40">
+             <yummy:PancakeView Margin="0,32,0,0" BackgroundColor="#E96C20" Padding="20,0"
+                               HorizontalOptions="FillAndExpand" HeightRequest="150" CornerRadius="20">
+
+                 <Label Text="COORDINATES" HorizontalTextAlignment="Center" FontSize="35"
+                       HorizontalOptions="Center" VerticalOptions="Center" TextColor="#000000" />
+
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow x:Name="shadow" Color="Gray" Offset="30, 30"/>
+                </yummy:PancakeView.Shadow>
+
+            </yummy:PancakeView>
+             
+
+    <!--        <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>
+            <Grid>
+            <Label Text="LATITUDE:" FontAttributes="Bold" FontSize="20"/>
+             <Label FontSize="18" Text="{Binding lat}" HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#000000"/>
+                <Label Grid.Row="2" Text="LONGITUTDE:" FontAttributes="Bold" FontSize="20"/>
+                 <Label Grid.Row="2" FontSize="18" Text="{Binding lon}" HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#000000"/>
+                </Grid>
+              <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>-->
+            <Button Text="VIEW STORE" Command="{Binding scmd}" />
+            <Button Text="VIEW COORDINATES" Command="{Binding ccmd}" />
+            <Button Text="DEBUG" Command="{Binding dcmd}" />
+        
+
+           
+        </StackLayout>
+            </ScrollView>
+    </ContentView>
+</ContentPage>

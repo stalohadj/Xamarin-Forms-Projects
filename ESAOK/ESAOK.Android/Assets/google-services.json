@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1087168651165",
+    "project_id": "esaok-379bd",
+    "storage_bucket": "esaok-379bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087168651165:android:14782030c6ddebcfd11974",
+        "android_client_info": {
+          "package_name": "com.mmh.agrcalendar.esaok"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087168651165-6hccvb8i730d8cl47v427fl6lai6njqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1DBvjoi_jinchQ8xhKXawxJ2FvgFn8qs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087168651165-6hccvb8i730d8cl47v427fl6lai6njqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

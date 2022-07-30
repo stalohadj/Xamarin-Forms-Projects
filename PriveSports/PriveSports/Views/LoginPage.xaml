@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PriveSports.Views.LoginPage" xmlns:vm="clr-namespace:PriveSports.ViewModels"
+             NavigationPage.HasNavigationBar="False">
+     <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="{AppThemeBinding Dark=#E96C20, Light=#E96C20}" RowDefinitions="0.5*, *, *" RowSpacing="0">
+        <Grid Grid.RowSpan="2">
+            <Path Aspect="Fill" Data="M0,0H375V403.469S278.054,480,184.3,480,0,403.469,0,403.469Z">
+                <Path.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#1E1D1A" Offset="0"/>
+                        <GradientStop Color="#2C2925" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>            
+        </Grid>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Image Source="logo.png" WidthRequest="250" HeightRequest="250" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Grid.RowSpan="2"  Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+            <Frame HasShadow="False" WidthRequest="{OnIdiom Tablet=350, Desktop=350, Default=250}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"
+                   CornerRadius="35" Padding="30" BackgroundColor="White" >
+                <Grid x:Name="loginView" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout BackgroundColor="White"  Spacing="30">
+                        <StackLayout BackgroundColor="White" Spacing="15">
+                            <Label Text="WELCOME" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
+                        </StackLayout>
+                         <Button Text="Register" Command="{Binding RegisterCommand}"/>
+                        <Button Text="Continue as a Guest" Command="{Binding MainPageCmd}"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </Grid>
+</ContentPage>

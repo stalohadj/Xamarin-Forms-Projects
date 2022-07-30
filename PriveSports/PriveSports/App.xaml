@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PriveSports.App"  xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+
+    <Application.Resources>
+      
+        <Color x:Key="PrimaryColor">#2C2925</Color>
+        <Color x:Key="SecondaryColor">#1E1D1A</Color>
+        <Color x:Key="EntryColor">White</Color>
+        <Color x:Key="DarkBgColor">#2C2925</Color>
+        <Color x:Key="DarkTextColor">#2C2925</Color>
+        <Color x:Key="DarkElementColor">#2C2925</Color>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkTextColor}, Light=Black}"/>
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkTextColor}, Light=Black}"/>
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark=#707070}"/>
+        </Style>
+
+        
+
+        <Style x:Key="stlMainFrame" TargetType="Frame">
+       <Setter Property="TranslationY"    Value="{OnPlatform iOS='-150', Android='-33'}"/> 
+       <Setter Property="HeightRequest"   Value="{OnPlatform iOS='350', Android='228'}"/>
+       <Setter Property="HasShadow"       Value="False" />
+        </Style>
+
+        <Style x:Key="stlBoardTitle" TargetType="Label">
+       <Setter Property="Padding"           Value="0,30,0,5"/>
+       <Setter Property="TextColor"         Value="#a5a2a2"/> 
+       <Setter Property="FontSize"          Value="16"/>
+       <Setter Property="HorizontalOptions" Value="Center"/> 
+        </Style>
+
+       <Style x:Key="stlBoardDesc" TargetType="Label">
+       <Setter Property="FontAttributes"    Value="Bold"/> 
+       <Setter Property="FontSize"          Value="16" />
+       <Setter Property="HorizontalOptions" Value="Center"/>
+       </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="WidthRequest" Value="{OnIdiom Tablet=350, Desktop=350, Default=250}"/>
+            <Setter Property="HeightRequest" Value="{OnIdiom Tablet=60, Desktop=60, Default=50}"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="{OnIdiom Tablet=20, Desktop=20, Default=16}"/>
+            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}"/>
+            <Setter Property="CornerRadius" Value="{OnIdiom Tablet=30, Desktop=30, Default=25}"/>
+        </Style>
+
+        <Style TargetType="ImageButton">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+
+         <ResourceDictionary>
+
+            <yummy:GradientStopCollection x:Key="Rainbow">
+                <yummy:GradientStop Color="#f3855b" Offset="0" />
+                <yummy:GradientStop Color="#fbcf93" Offset="0.2" />
+                <yummy:GradientStop Color="#fbe960" Offset="0.4" />
+                <yummy:GradientStop Color="#a0e67a" Offset="0.6" />
+                <yummy:GradientStop Color="#33c6ee" Offset="0.8" />
+                <yummy:GradientStop Color="#c652ba" Offset="1" />
+            </yummy:GradientStopCollection>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="RocknRollOne-Regular">
+                <On Platform="Android" Value="RocknRollOne-Regular.ttf#RocknRoll Regular" />
+                <On Platform="iOS" Value="RocknRollOne-Regular" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="Roboto-Black">
+                <On Platform="Android" Value="Roboto-Black.ttf#Roboto Black" />
+                <On Platform="iOS" Value="Roboto-Black" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="Roboto-Bold.ttf#Roboto Bold" />
+                <On Platform="iOS" Value="Roboto-Bold" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="Roboto-Regular.ttf#Roboto" />
+                <On Platform="iOS" Value="Roboto-Regular" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="ThinFont">
+                <On Platform="Android" Value="Roboto-Thin.ttf#Roboto Thin" />
+                <On Platform="iOS" Value="Roboto-Thin" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LightFont">
+                <On Platform="Android" Value="Roboto-Light.ttf#Roboto Light" />
+                <On Platform="iOS" Value="Roboto-Light" />
+            </OnPlatform>
+
+            <Style TargetType="Label" >
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
+            </Style>
+
+            <Style x:Key="small" TargetType="Label">
+                <Setter Property="TextColor" Value="#717171" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="AssistantBold" />
+            </Style>
+
+            <Style x:Key="heading" TargetType="Label">
+                <Setter Property="TextColor" Value="#484848" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="Poppins-Bold" />
+            </Style>
+
+            <Style x:Key="small_button" TargetType="Button">
+                <Setter Property="Padding" Value="10,0" />
+                <Setter Property="HeightRequest" Value="32" />
+                <Setter Property="BackgroundColor" Value="Tomato" />
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="AssistantBold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="Slider">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="WidthRequest" Value="100" />
+                <Setter Property="MinimumTrackColor" Value="DodgerBlue" />
+                <Setter Property="MaximumTrackColor" Value="Gray" />
+                <Setter Property="ThumbImageSource" Value="monkey.png" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <ControlTemplate x:Key="GeneralTemplate">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#1E1D1A">
+                    <Grid.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,20,0,0" />
+                        </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="10,10,20,-15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                          <Image Grid.Column="0" Source="{TemplateBinding Parent.Title}" Aspect="AspectFit" HeightRequest="90" VerticalOptions="Center" />
+                   <!--  HEIGH REQUEST FOR IPHONE = 90 FOR ANDROID 60  <Label Text= TextColor="#E96C20" FontFamily="{StaticResource RocknRollOne-Regular}" FontSize="22" VerticalOptions="Center"/>-->
+                       
+                        <StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="#1E1D1A">
+                            <ImageButton Source="feedback.png" Aspect="AspectFit" HeightRequest="32" WidthRequest="30" VerticalOptions="Center" Clicked="FeedbackClick"/>
+                            <ImageButton Source="newsletter.png" Aspect="AspectFit" HeightRequest="32" WidthRequest="30" VerticalOptions="Center" Clicked="NewsLetterClick"/>
+                        </StackLayout>
+                    </Grid>
+                    <ContentPresenter Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                </Grid>
+            </ControlTemplate>
+
+                   <ControlTemplate x:Key="GeneralTemplateForPopups">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#1E1D1A">
+                    <Grid.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0,10,0,0" />
+                        </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="20,10,20,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{TemplateBinding Parent.Parent.Title}" TextColor="#E96C20" FontFamily="{StaticResource RocknRollOne-Regular}" FontSize="22" VerticalOptions="Center"/>
+                       
+                    </Grid>
+                    <ContentPresenter Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                </Grid>
+            </ControlTemplate>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>

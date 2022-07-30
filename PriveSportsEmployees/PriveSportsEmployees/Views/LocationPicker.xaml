@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rg:PopupPage
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="False"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:PriveSportsEmployees.Views"
+    xmlns:rg="http://rotorgames.com" xmlns:vm="clr-namespace:PriveSportsEmployees.ViewModels"
+    HasSystemPadding="False"
+  x:Class="PriveSportsEmployees.Views.LocationPicker">
+ <rg:PopupPage.Animation>
+        <rg:MoveAnimation
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            DurationIn="400"
+            DurationOut="300"
+            HasBackgroundAnimation="True"/>
+   </rg:PopupPage.Animation>
+
+     <pancake:PancakeView
+        CornerRadius="10,10,10,10"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="FillAndExpand"
+        Margin="0,40,0,0"
+        Padding="16"
+        IsClippedToBounds="True"
+        BackgroundColor="White">
+        <StackLayout Spacing="8">
+             <Grid>
+                <Button Text="Cancel"
+                        Grid.Column="0"
+                        TextColor="#E55F0C"
+                        BackgroundColor="Transparent"
+                        Clicked="CloseBtn_Clicked"
+                        HorizontalOptions="Start" />
+                <Label Text="{Binding title}"
+                       Grid.Column="1"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       HeightRequest="60"
+                       HorizontalOptions="CenterAndExpand" />
+                <Button Text="Done" Grid.Column="2"
+                        BackgroundColor="Transparent"
+                        TextColor="#E55F0C"
+                        Clicked="ConfirmBtn_Clicked"
+                        HorizontalOptions="End" />
+            </Grid>
+
+              <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+
+            <Picker HorizontalOptions="Center" BackgroundColor="White" TitleColor="Black" TextColor="Black" x:Name="picker" Title="{Binding title2}" ItemsSource="{Binding Locs}" SelectedItem="{Binding sel_loc}" FontSize="Medium"/>
+
+
+     
+        </StackLayout>
+
+
+
+
+     </pancake:PancakeView>
+
+</rg:PopupPage>

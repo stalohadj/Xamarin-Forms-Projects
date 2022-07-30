@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    x:Class="PriveSports.Views.RegisterPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="{AppThemeBinding Dark=#E96C20, Light=#E96C20}" RowDefinitions="0.5*, *, *">
+       
+        <Grid Grid.RowSpan="2">
+            <Path Aspect="Fill" Data="M0,0H375V403.469S278.054,480,184.3,480,0,403.469,0,403.469Z">
+                <Path.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#1E1D1A" Offset="0"/>
+                        <GradientStop Color="#2C2925" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+        </Grid>
+
+        
+        <StackLayout Grid.Row="0" Grid.RowSpan="3" Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+            <Frame HasShadow="False" WidthRequest="{OnIdiom Tablet=400, Desktop=400, Default=300}" HorizontalOptions="Center" VerticalOptions="Center"
+                   CornerRadius="35" Padding="15" BackgroundColor="White">
+                <Grid x:Name="loginView" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout BackgroundColor="White"  Spacing="15">
+                        <StackLayout>
+                            
+                            <StackLayout BackgroundColor="White"  Spacing="1">
+                                 <Label Text="Full Name *"  FontSize="15" FontAttributes="Bold"/>
+                                    <Entry BackgroundColor="White" Text="{Binding Name}" Placeholder="Name + Surname" Keyboard="Text" FontSize="14" HorizontalOptions="FillAndExpand"/>
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                            <StackLayout  Spacing="1">
+                                <Label Text="Phone number *" FontSize="15" FontAttributes="Bold"/>
+                                    <Entry BackgroundColor="White" Text="{Binding Phone}" Placeholder="Phone {99887766}" Keyboard="Telephone" FontSize="14" HorizontalOptions="FillAndExpand"/>
+                         
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                               <StackLayout Spacing="1">
+                                     <Label Text="Birthday *" FontAttributes="Bold" FontSize="15"/>
+                                      <DatePicker Format="dd/MM/yyyy"
+                                                  FontSize="14"
+                                                  BackgroundColor="White"
+                                                  TextColor="Black"
+                                                  Date="{Binding Birthdate}" />
+                                   <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                               <StackLayout BackgroundColor="White"  Spacing="1">
+                                 <Label Text="Nameday *" FontSize="15" FontAttributes="Bold"/>
+                                    <Entry BackgroundColor="White" Text="{Binding Nameday}" Placeholder="'ANDREAS'" Keyboard="Text" FontSize="14" HorizontalOptions="FillAndExpand"/>
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                             <StackLayout Spacing="1">
+                                   <Label Text="Gender *"  FontSize="15" FontAttributes="Bold"/>
+                                <Grid HorizontalOptions="FillAndExpand">
+                               
+                                    <Picker x:Name="picker"
+                                             FontSize="14"
+                                             BackgroundColor="White"
+                                             TextColor="Black"
+                                         Title="Select"
+                                            
+                                         TitleColor="Black"
+                                            SelectedItem="{Binding Gender}">
+                                  <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}" >
+                                        <x:String>Female</x:String>
+                                        <x:String>Male</x:String>
+                                        <x:String>Prefer Not to Say</x:String> 
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                    </Picker>
+                                </Grid>
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+
+                             <StackLayout Spacing="1">
+                               
+                                      <Label Text="Zip Code *" FontSize="15" FontAttributes="Bold" />
+                                    <Entry BackgroundColor="White" Text="{Binding ZipCode}" Placeholder="Zip Code {0000}" Keyboard="Numeric" FontSize="14" HorizontalOptions="FillAndExpand"/>
+                           
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                             <StackLayout Spacing="1">
+                               
+                                      <Label Text="Email"  FontSize="15" FontAttributes="Bold"/>
+                                    <Entry BackgroundColor="White" Text="{Binding Email}" Placeholder="Email {myname@domain.com}" Keyboard="Email" FontSize="14" HorizontalOptions="FillAndExpand"/>
+       
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout>
+                              <Grid>
+                              <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="0.15*" />
+                              <ColumnDefinition Width="0.50*" />
+                              </Grid.ColumnDefinitions>
+                              <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                          <CheckBox Color="DarkOrange" IsChecked="{Binding IsChecked}" VerticalOptions="Center"/>
+                          <Label Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center"  FontSize="14" Text="I consent to my data being stored."> </Label>
+                           </Grid>
+                              </StackLayout>
+                          <Button Text="Register" WidthRequest="250" HeightRequest="40" FontSize="16" Command="{Binding RegisterCommand}"/>
+                        <Button  Text="Continue as a Guest" FontSize="16" Command="{Binding MainPageCmd}" WidthRequest="250" HeightRequest="40"></Button>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+           
+        </StackLayout>
+           
+    </Grid>
+</ContentPage>
+
+<!--<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    x:Class="PriveSports.Views.RegisterPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="{AppThemeBinding Dark=#E96C20, Light=#E96C20}" RowDefinitions="0.5*, *, *">
+        <Grid Grid.RowSpan="2">
+            <Path Aspect="Fill" Data="M0,0H375V403.469S278.054,480,184.3,480,0,403.469,0,403.469Z">
+                <Path.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#1E1D1A" Offset="0"/>
+                        <GradientStop Color="#2C2925" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+        </Grid>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+             <Image Source="logo.png" WidthRequest="250" HeightRequest="250" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+        </StackLayout>
+        <Label> </Label>
+        <StackLayout Grid.Row="1" Grid.RowSpan="2" Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+            <Frame HasShadow="False" WidthRequest="{OnIdiom Tablet=400, Desktop=400, Default=300}" HorizontalOptions="Center" VerticalOptions="Center"
+                   CornerRadius="35" Padding="15" BackgroundColor="White">
+                <Grid x:Name="loginView" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout BackgroundColor="White"  Spacing="15">
+                        <StackLayout>
+                            <Label Text="REGISTER" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <StackLayout BackgroundColor="White"  Spacing="1">
+                                 <Label Text="Name *" FontAttributes="Bold"/>
+                                    <Entry BackgroundColor="White" Text="{Binding Name}" Placeholder="Name + Surname" Keyboard="Text" FontSize="14" HorizontalOptions="FillAndExpand"/>
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                            <StackLayout  Spacing="1">
+                                <Label Text="Phone number *" FontAttributes="Bold"/>
+                                    <Entry BackgroundColor="White" Text="{Binding Phone}" Placeholder="Phone {99887766}" Keyboard="Telephone" FontSize="14" HorizontalOptions="FillAndExpand"/>
+                         
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                               <StackLayout Spacing="1">
+                                     <Label Text="Birthday *" FontAttributes="Bold"/>
+                                      <DatePicker Format="dd/MM/yyyy"
+                                                  FontSize="Small"
+                                                  BackgroundColor="White"
+                                                  TextColor="Black"
+                                                  Date="{Binding Birthdate}" />
+                                   <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                             <StackLayout Spacing="1">
+                                   <Label Text="Gender *" FontAttributes="Bold"/>
+                                <Grid HorizontalOptions="FillAndExpand">
+                               
+                                    <Picker x:Name="picker"
+                                             FontSize="Small"
+                                             BackgroundColor="White"
+                                             TextColor="Black"
+                                         Title="Select"
+                                            
+                                         TitleColor="Black"
+                                            SelectedItem="{Binding Gender}">
+                                  <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}" >
+                                        <x:String>Female</x:String>
+                                        <x:String>Male</x:String>
+                                        <x:String>Prefer Not to Say</x:String>
+                                            
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                    </Picker>
+                                </Grid>
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+
+                             <StackLayout Spacing="1">
+                               
+                                      <Label Text="Zip Code *" FontAttributes="Bold" />
+                                    <Entry BackgroundColor="White" Text="{Binding ZipCode}" Placeholder="Zip Code {0000}" Keyboard="Numeric" FontSize="14" HorizontalOptions="FillAndExpand"/>
+                           
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                             <StackLayout Spacing="1">
+                               
+                                      <Label Text="Email" FontAttributes="Bold"/>
+                                    <Entry BackgroundColor="White" Text="{Binding Email}" Placeholder="Email {myname@domain.com}" Keyboard="Email" FontSize="14" HorizontalOptions="FillAndExpand"/>
+       
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout>
+                              <Grid>
+                              <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="0.15*" />
+                              <ColumnDefinition Width="0.50*" />
+                              </Grid.ColumnDefinitions>
+                              <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                          <CheckBox Color="DarkOrange" IsChecked="{Binding IsChecked}" VerticalOptions="Center"/>
+                          <Label Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" Text="I consent to my data being stored."> </Label>
+                           </Grid>
+                              </StackLayout>
+                          <Button Text="Register" Command="{Binding RegisterCommand}"/>
+                        <Button Text="Continue as a Guest" Command="{Binding MainPageCmd}"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+           
+        </StackLayout>
+    </Grid>
+</ContentPage>-->

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:PriveSportsEmployees.ViewModels"
+    xmlns:s="clr-namespace:PriveSportsEmployees.Services"
+    x:Class="PriveSportsEmployees.Views.RewardSuggestionsPage" Title="Reward Suggestions">
+     <ContentPage.BindingContext>
+        <local:EmployeeListViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" Padding="20">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+            <ListView BackgroundColor="White" ItemsSource="{Binding Employees}" HasUnevenRows="True"  Margin="2,2"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      IsRefreshing="{Binding IsRefreshing}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                            <Grid BackgroundColor="White" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                               
+                                
+                                <Label Text="{Binding EmployeeName}" 
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       Grid.ColumnSpan="6"
+                                      
+                                       VerticalTextAlignment="Start"/>
+                                  
+                                    <Label Text="{Binding Designation}" FontSize="16" Grid.Column="0" Grid.ColumnSpan="5" VerticalTextAlignment="End" Grid.Row="1" ></Label>
+
+                                <Image Source="pending.png" Grid.Column="5" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End" Margin="0,3"/>
+
+                                </Grid>
+                                </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+    </ContentPage>

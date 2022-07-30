@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rg:PopupPage
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rg="http://rotorgames.com" xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    HasSystemPadding="False"
+    x:Class="PriveSports.Views.TransPopupPage">
+    <ContentPage.BindingContext>
+        <vm:TransPopupViewModel/>
+    </ContentPage.BindingContext>
+   
+     <StackLayout Padding="20,20,20,20"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center">
+      <StackLayout Grid.Row="1" Grid.RowSpan="2" Spacing="30" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White">
+            <Frame HasShadow="False" WidthRequest="{OnIdiom Tablet=700, Desktop=700, Default=700}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                   CornerRadius="35" Padding="30" BackgroundColor="White">
+                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout BackgroundColor="White" Padding="10" Spacing="30">
+                        <Grid BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand">
+                         <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                        <StackLayout Spacing="15">
+                         <Label Text="{Binding TransDate}" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <Label></Label>
+                            <Label Text="ITEMS:" FontAttributes="Bold" FontSize="20"/>
+                             <ScrollView>
+                            <Label HorizontalOptions="StartAndExpand" Text="{Binding TransDeets}" FontSize="13"/>
+                             </ScrollView>
+                             <ScrollView>
+                             <Label Text="{Binding TransP}" FontSize="Body" FontAttributes="Bold"/>
+                             </ScrollView>
+                        </StackLayout>
+                           </Grid>
+                     </StackLayout>  
+                </Grid>
+            </Frame>
+        </StackLayout>
+         <Button Clicked="OnClose"
+                 Text="Close"/>
+     </StackLayout>
+
+</rg:PopupPage>

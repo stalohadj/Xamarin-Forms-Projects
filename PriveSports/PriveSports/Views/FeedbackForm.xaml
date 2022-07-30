@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rg:PopupPage
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="True"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rg="http://rotorgames.com"
+    HasSystemPadding="False"
+    x:Class="PriveSports.Views.FeedbackForm" Title="FEEDBACK">
+      
+   
+          <StackLayout Spacing="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+               <ContentView ControlTemplate="{StaticResource GeneralTemplateForPopups}" Padding="20,20,20,20" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Grid Grid.Row="1" HeightRequest="550" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                         <Label x:Name="labelLoading" Text="Loading..." IsVisible="false" />
+                        <WebView HeightRequest="760" WidthRequest="210" x:Name="myWebView"  Source="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZAANVpvzBUOVFRRktBRTRDSFFFUk5KWkM5MTBYRVNMRi4u"/>
+                    </Grid>
+       
+       
+                       </ContentView>
+                <Button HeightRequest="45" WidthRequest="250"
+                        Clicked="OnClose"
+                        Text="Close"/>
+            </StackLayout>
+         <!--<StackLayout >
+        <StackLayout Orientation="Horizontal" Margin="5">
+            <Button Text="Back" HorizontalOptions="StartAndExpand" Clicked="OnBackButtonClicked" WidthRequest="100"/>
+            <Button Text="Forward" HorizontalOptions="EndAndExpand" Clicked="OnForwardButtonClicked" WidthRequest="100"/>
+        </StackLayout>
+            <Label x:Name="labelLoading" Text="Loading..." IsVisible="false" />
+            <WebView HeightRequest="585" WidthRequest="200" x:Name="myWebView"  Source="https://www.privesports.com.cy"/>
+       <WebView HeightRequest="700" WidthRequest="700" Source="https://www.privesports.com.cy" Navigated="webviewNavigated" Navigating="webviewNavigating" />
+        </StackLayout>-->
+
+
+
+ 
+   </rg:PopupPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PriveSports.ViewModels"
+             x:Class="PriveSports.Views.LandingPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:LandingViewModel/>
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="{AppThemeBinding Dark=#E96C20, Light=#E96C20}" RowDefinitions="2*, *">
+        <Grid>
+            <Path Aspect="Fill" Data="M0,0H375V403.469S278.054,480,184.3,480,0,403.469,0,403.469Z">
+                <Path.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#1E1D1A" Offset="0"/>
+                        <GradientStop Color="#2C2925" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="logo.png" WidthRequest="250" HeightRequest="250" HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+        <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SignInCommand}"/>
+            </StackLayout.GestureRecognizers>
+            <Image Source="arrowRightWhite.png" HorizontalOptions="Center"/>
+            <Label Text="Proceed" HorizontalOptions="Center"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

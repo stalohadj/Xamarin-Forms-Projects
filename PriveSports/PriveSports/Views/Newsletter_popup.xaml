@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rg:PopupPage 
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="True"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rg="http://rotorgames.com" xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    HasSystemPadding="False"
+    x:Class="PriveSports.ViewModels.Newsletter_popup" x:Name="Newsletter_PopupViewModel" Title="NEWSLETTER">
+     <ContentPage.BindingContext>
+        <vm:Newsletter_PopupViewModel/>
+    </ContentPage.BindingContext>
+     <StackLayout
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center">
+      <ContentView  ControlTemplate="{StaticResource GeneralTemplateForPopups}" Padding="20,20,20,20" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+           
+         <ScrollView Orientation="Vertical">
+     
+     <ListView HeightRequest="450"
+              ItemTapped="ListViewItem_Tabbed"
+               HasUnevenRows="True"
+              ItemsSource="{Binding Links}"
+              BackgroundColor="White">
+                  
+        <ListView.ItemTemplate>
+
+            <DataTemplate>
+
+                <ViewCell>
+                  
+                    <Grid Padding="5">
+                      <Grid.ColumnDefinitions>			
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="1*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+                        <Image Source="{Binding image}" Grid.ColumnSpan="1" HorizontalOptions="CenterAndExpand" Grid.Column="0" Aspect="AspectFit" WidthRequest="40" HeightRequest="40"/>
+                        <Label Grid.Column="1" Text="{Binding Category}"  
+                               FontSize="18"  Grid.ColumnSpan="2"
+                               TextColor="Black"/>
+
+                        <StackLayout Padding="10" Grid.Column="0" IsVisible="{Binding Isvisible}" HorizontalOptions="Center" Grid.ColumnSpan="3" Grid.Row="1"
+                                     
+                                     Margin="0,0,80,0">
+                            <StackLayout>
+              
+                                        <Label>
+                         <Label.FormattedText>
+                         <FormattedString>
+            <Span Text="{Binding link}"
+                  TextColor="Blue"
+                  TextDecorations="Underline"
+                  FontSize="Body">
+                <Span.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={x:Reference Newsletter_PopupViewModel}, Path = BindingContext.TapCommand}"
+                                          CommandParameter="{Binding link}" />
+                </Span.GestureRecognizers>
+            </Span>
+        </FormattedString>
+    </Label.FormattedText>
+</Label>
+                                
+                                </StackLayout>
+                        </StackLayout>  
+                    </Grid>  
+                </ViewCell>  
+            </DataTemplate>  
+        </ListView.ItemTemplate>  
+    </ListView>
+ 
+             </ScrollView>
+           
+      </Grid>
+         
+   
+    <!--
+    <StackLayout Padding="20,20,20,20"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center">
+        <Grid Padding="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                 <WebView BackgroundColor="White" HeightRequest="700" WidthRequest="200" x:Name="myWebView"  Source="{Binding Link}"/>
+        </Grid>
+         <Button
+                        Clicked="OnClose"
+                        Text="Close"
+                         />
+    </StackLayout> !-->
+         </ContentView>
+         <Button HeightRequest="45" WidthRequest="250"
+                        Clicked="OnClose"
+                        Text="Close"/>
+          </StackLayout>
+</rg:PopupPage>

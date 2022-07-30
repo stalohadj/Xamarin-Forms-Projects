@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:LoginKit09.ViewModels"
+             x:Class="LoginKit09.Views.LoginPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="{AppThemeBinding Dark=#242323, Light=#F3F2F2}" RowDefinitions="0.5*, *, *" RowSpacing="0">
+        <Grid Grid.RowSpan="2">
+            <Path Aspect="Fill" Data="M0,0H375V403.469S278.054,480,184.3,480,0,403.469,0,403.469Z">
+                <Path.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#4D40D7" Offset="0"/>
+                        <GradientStop Color="#1909C0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>            
+        </Grid>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Image Source="streaks.png" WidthRequest="80" HeightRequest="80" HorizontalOptions="Center"/>
+            <Label Text="STREAKS &amp; BURGERS" TextColor="White" Opacity="0.6" CharacterSpacing="5" HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Grid.RowSpan="2"  Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+            <Frame HasShadow="False" WidthRequest="{OnIdiom Tablet=350, Desktop=350, Default=250}" HorizontalOptions="Center" VerticalOptions="StartAndExpand"
+                   CornerRadius="35" Padding="30" BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBgColor}, Light=White}">
+                <Grid x:Name="loginView" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout Spacing="30">
+                        <StackLayout Spacing="15">
+                            <Label Text="Sign In" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
+                            <StackLayout Spacing="5">
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Entry Text="{Binding Email}" Placeholder="Email Address" Keyboard="Email" FontSize="14" HorizontalOptions="FillAndExpand"/>
+                                </Grid>
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                            </StackLayout>
+                            <StackLayout Spacing="5">
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Entry Text="{Binding Password}" Placeholder="Password" FontSize="14" IsPassword="{Binding IsPassword}" HorizontalOptions="FillAndExpand"/>
+                                    <ImageButton Grid.Column="1" Command="{Binding IsPasswordCommand}" WidthRequest="15" HeightRequest="15" VerticalOptions="Center" HorizontalOptions="Center"
+                                                         />
+                                </Grid>
+                                <BoxView HeightRequest="1" BackgroundColor="#E9E9E9"/>
+                                <Label Margin="20,0" Text="Forgot Password" TextColor="{DynamicResource PrimaryColor}" FontSize="13" HorizontalOptions="End">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <Button Text="Login" Command="{Binding LoginCommand}"/>
+                        
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Don't have an account?" FontSize="{OnIdiom Tablet=15, Desktop=15, Default=13}" FontAttributes="Bold"/>
+                        <Span Text="&#x0a;"/>
+                        <Span Text=" Sign Up" FontSize="{OnIdiom Tablet=15, Desktop=15, Default=13}" FontAttributes="Bold" TextColor="{DynamicResource PrimaryColor}">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <StackLayout x:Name="FingerprintView" HorizontalOptions="Center" VerticalOptions="End" WidthRequest="100">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FingerprintCommand}"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="fingerprintGray.png" WidthRequest="45" HeightRequest="45" HorizontalOptions="Center"/>
+                <Label Text="Tap to login with fingerprint" FontSize="12" Opacity="0.5" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

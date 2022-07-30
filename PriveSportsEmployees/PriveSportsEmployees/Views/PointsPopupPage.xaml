@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<rg:PopupPage
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"  xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  xmlns:rg="http://rotorgames.com"
+    x:Class="PriveSportsEmployees.Views.PointsPopupPage" xmlns:vm="clr-namespace:PriveSportsEmployees.ViewModels">
+     <ContentPage.BindingContext>
+        <vm:PointsPopupViewModel/>
+    </ContentPage.BindingContext>
+     <rg:PopupPage.Animation>
+        <rg:MoveAnimation
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            DurationIn="400"
+            DurationOut="300"
+            HasBackgroundAnimation="True"/>
+   </rg:PopupPage.Animation>
+     <pancakeView:PancakeView
+        CornerRadius="10,10,0,0"
+        VerticalOptions="Center"
+        HorizontalOptions="FillAndExpand"
+        Margin="0,40,0,0"
+        Padding="16"
+        IsClippedToBounds="True"
+        BackgroundColor="White">
+        <StackLayout Spacing="5" BackgroundColor="White">
+        <StackLayout>
+                
+                <Button Text="Done"
+                        FontSize="Medium"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        FontAttributes="Bold"
+                        BackgroundColor="Transparent"
+                        TextColor="OrangeRed"
+                        Clicked="OnClose"
+                        HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+       <BoxView Style="{StaticResource SeparatorBoxView}"/>
+            <Label Text="{Binding Balance}"
+                   FontSize="17" FontAttributes="Bold"
+                   Margin="10,10,10,10"/>
+       <BoxView Style="{StaticResource SeparatorBoxView}"/>
+      <ListView Margin="0,0"  
+              ItemsSource="{Binding History}"  
+              HasUnevenRows="True"  
+              BackgroundColor="White">  
+        <ListView.ItemTemplate>  
+            <DataTemplate>  
+                <ViewCell>
+        <StackLayout Padding="10">
+           <Grid BackgroundColor="White">
+          <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+                  <Label Text="{Binding Date}" Grid.Row="0" Grid.RowSpan="5"
+                              FontSize="Medium" FontAttributes="Bold" />
+                   <Label Text="{Binding Details}" Grid.Row="1" Grid.ColumnSpan="4" 
+                              FontSize="Medium" />
+                   <Label Text="{Binding Points}" Grid.Row="2" Grid.ColumnSpan="4" 
+                              FontSize="Medium" TextColor="OrangeRed" FontAttributes="Italic"/>
+                
+               </Grid>
+            </StackLayout>
+                </ViewCell>  
+            </DataTemplate>  
+        </ListView.ItemTemplate>  
+      </ListView>
+</StackLayout>
+</pancakeView:PancakeView>
+</rg:PopupPage>
+

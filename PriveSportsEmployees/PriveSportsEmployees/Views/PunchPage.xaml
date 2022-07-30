@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+   xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:PriveSportsEmployees.ViewModels"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d" x:Class="PriveSportsEmployees.Views.PunchPage" Title="Time and Attendance">
+    <ContentPage.BindingContext>
+        <vm:PunchViewModel/>
+    </ContentPage.BindingContext>
+    <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+        <StackLayout BackgroundColor="White" Spacing="0" Padding="40">
+            <yummy:PancakeView Margin="0,32,0,0" BackgroundColor="#E96C20" Padding="20,0"
+                               HorizontalOptions="FillAndExpand" HeightRequest="150" CornerRadius="20">
+
+                 <Label x:Name="clock" Text="" HorizontalTextAlignment="Center" FontSize="90"
+                       HorizontalOptions="Center" VerticalOptions="Center" TextColor="#000000" />
+
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow x:Name="shadow" Color="Gray" Offset="30, 30"/>
+                </yummy:PancakeView.Shadow>
+
+            </yummy:PancakeView>
+
+            <Label Text=""/>
+            <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>
+
+            <Label Text="{Binding name}" HorizontalTextAlignment="Center" FontSize="Large"
+                       HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="#000000"/>
+
+            <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>
+           
+           
+             <Label Padding="10"></Label>
+            <Button Text="PUNCH" Command="{Binding PunchInCmd}" VerticalOptions="CenterAndExpand">
+                <Button.Triggers>
+                <DataTrigger TargetType="Button"
+                     Binding="{Binding enable_btn}"
+                     Value="0">
+                <Setter Property="IsEnabled" Value="False" />
+            <!-- multiple Setters elements are allowed -->
+        </DataTrigger>
+    </Button.Triggers>
+            </Button>
+        </StackLayout>
+    </ContentView>
+</ContentPage>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    mc:Ignorable="d"
+    x:Class="PriveSports.Views.UserPagev2" Title="logo.png">
+     <ContentPage.BindingContext>
+        <vm:UserPagev2ViewModel/>
+    </ContentPage.BindingContext>
+     <ContentView ControlTemplate="{StaticResource GeneralTemplate}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+         <Grid BackgroundColor="#f4f4f4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" /> 
+            </Grid.RowDefinitions>  
+         <Image Grid.Row="0" Grid.RowSpan="3" Source="usericon.jpg" HeightRequest="350" VerticalOptions="Start" />   
+            <StackLayout Grid.Row="3" Grid.RowSpan="3" BackgroundColor="White" VerticalOptions="End">
+                    <Frame CornerRadius="40" Style="{StaticResource stlMainFrame}" BackgroundColor="White">
+                        <Grid Padding="20,10,25,0" RowSpacing="0" BackgroundColor="White"> 
+                   <Grid.ColumnDefinitions>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="*"/>
+                   </Grid.ColumnDefinitions> 
+                   <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/> 
+                   </Grid.RowDefinitions>
+                  
+                   <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding name}" FontAttributes="Bold" FontSize="25"/>
+                   <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="18">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Phone: " FontAttributes="Bold" FontSize="20"/>
+                                <Span Text="{Binding phone}"  FontSize="20"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+                     <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="18">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Birthday: " FontAttributes="Bold" FontSize="20"/>
+                                <Span Text="{Binding birthday}" FontSize="20"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+                  
+                      <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="18">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Gender: " FontAttributes="Bold" FontSize="20"/>
+                                <Span Text="{Binding gender}"  FontSize="20"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+                    <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="18">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Zip Code: " FontAttributes="Bold" FontSize="20"/>
+                                <Span Text="{Binding zipcode}"  FontSize="20"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+                      <Label Grid.Row="5" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,0,0,0" FontSize="18">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Email: " FontAttributes="Bold" FontSize="20"/>
+                                <Span Text="{Binding email}"  FontSize="20"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+          
+                      
+                         <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="{DynamicResource PrimaryColor}" Text="EDIT DETAILS"  FontAttributes="Bold" FontSize="16" HeightRequest="55" WidthRequest="135" Command="{Binding EditCommand}"   HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="Center"/> 
+                        <Button Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" TextColor="White" BackgroundColor="{DynamicResource PrimaryColor}" Text="LOGOUT"  FontAttributes="Bold" FontSize="16" HeightRequest="55" WidthRequest="135" Command="{Binding LogoutCommand}"   HorizontalOptions="End"
+                                    VerticalOptions="Center"/>
+                
+              
+
+                         
+                  
+             
+                    </Grid>
+
+                       </Frame>
+
+            </StackLayout>
+
+         </Grid>
+
+     </ContentView>
+
+</ContentPage>
+
+<!--<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    mc:Ignorable="d"
+    x:Class="PriveSports.Views.UserPagev2" Title="logo.png">
+     <ContentPage.BindingContext>
+        <vm:UserPagev2ViewModel/>
+    </ContentPage.BindingContext>
+     <ContentView ControlTemplate="{StaticResource GeneralTemplate}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+         <Grid BackgroundColor="#f4f4f4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" /> 
+            </Grid.RowDefinitions>
+             
+         <Image Grid.Row="0" Grid.RowSpan="2" Source="usericon.jpg" HeightRequest="200" VerticalOptions="StartAndExpand" />   
+            
+             <Frame CornerRadius="40" Style="{StaticResource stlMainFrame}" Grid.Row="2" BackgroundColor="White" Grid.RowSpan="4">
+                      
+                        <Grid Padding="20,10,25,0" RowSpacing="0" BackgroundColor="White" Grid.RowSpan="2"> 
+                   <Grid.ColumnDefinitions>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="*"/>
+                   </Grid.ColumnDefinitions> 
+                   <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/> 
+                   </Grid.RowDefinitions>
+
+                
+                   <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding name}" FontAttributes="Bold" FontSize="25"/>
+                   <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="14">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Phone Number: " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding phone}"  FontSize="15"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+                     <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="16">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Birthday: " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding birthday}" FontSize="15"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+                  
+                      <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="16">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Gender: " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding gender}"  FontSize="15"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+                    <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,10,0,0" FontSize="16">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Zip Code: " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding zipcode}"  FontSize="15"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+                      <Label Grid.Row="5" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,0,0,0" FontSize="16">
+                      <Label.FormattedText>
+                          <FormattedString>
+                                <Span Text="Email: " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding email}"  FontSize="15"/> 
+                          </FormattedString>
+                      </Label.FormattedText>
+                    </Label>
+          
+                      
+                         <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="{DynamicResource PrimaryColor}" Text="EDIT DETAILS"  FontAttributes="Bold" FontSize="15" HeightRequest="50" WidthRequest="135" Command="{Binding EditCommand}"   HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="Center"/> 
+                        <Button Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" TextColor="White" BackgroundColor="{DynamicResource PrimaryColor}" Text="LOGOUT"  FontAttributes="Bold" FontSize="15" HeightRequest="50" WidthRequest="135" Command="{Binding LogoutCommand}"   HorizontalOptions="End"
+                                    VerticalOptions="Center"/>
+                
+                    </Grid>
+                
+             </Frame>
+                 
+       
+         </Grid>
+
+     </ContentView>
+
+</ContentPage>-->

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Name="PointsPageViewModel"
+    xmlns:vm="clr-namespace:PriveSports.ViewModels"
+    mc:Ignorable="d"
+    x:Class="PriveSports.Views.PointsPage" Title="logo.png">
+     <ContentPage.BindingContext>
+        <vm:PointsPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentView ControlTemplate="{StaticResource GeneralTemplate}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+     
+          <ScrollView>
+        <StackLayout Spacing="0" Padding="40" BackgroundColor="White">
+
+            <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>
+
+            <Label Text="POINTS SUMMARY" Style="{StaticResource heading}"
+                   HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+
+            <Label Text="At 1000 points you can redeem a €20 gift voucher at any of our stores." Margin="0,8,0,16"
+                   HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+
+            <Grid ColumnSpacing="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <yummy:PancakeView Margin="0,32,0,0" BackgroundColor="#E96C20" Padding="20,0"
+                               HorizontalOptions="FillAndExpand" HeightRequest="150" CornerRadius="20">
+                <Label  HorizontalTextAlignment="Center" FontSize="Large"
+                       HorizontalOptions="Center" VerticalOptions="Center" >
+                         <Label.FormattedText>
+                         <FormattedString>
+            <Span Text="{Binding Points}"
+                  TextColor="Black"
+                  TextDecorations="Underline"
+                  FontSize="Body">
+                <Span.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={x:Reference PointsPageViewModel}, Path = BindingContext.TapCommand}"
+                                          CommandParameter="{Binding Points}" />
+                </Span.GestureRecognizers>
+            </Span>
+        </FormattedString>
+    </Label.FormattedText>
+            </Label>
+                 
+            
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow x:Name="shadow" Color="Gray" Offset="30, 30"/>
+                </yummy:PancakeView.Shadow>
+
+            </yummy:PancakeView>
+
+            <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>
+
+          
+                <Image Source="shop_icon.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" />
+
+                 
+
+             <BoxView HeightRequest="1" BackgroundColor="#c1c1c1" Margin="0,32"/>
+
+              <Button Text="{Binding button_text}" Command="{Binding RefreshCommand}"/>
+            
+            </StackLayout>
+    </ScrollView>
+    </ContentView>
+</ContentPage>
+
+ <!--  xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+    <ContentPage.BindingContext>
+        <local:TransactionInfoRepository x:Name="viewModel" />
+    </ContentPage.BindingContext>
+    <ContentView ControlTemplate="{StaticResource GeneralTemplate}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <SearchBar Placeholder="Search here to Filter" BackgroundColor="#1E1D1A"/>
+             <syncfusion:SfDataGrid x:Name="dataGrid"
+        
+                                     ItemsSource="{Binding TransInfoCollection}"
+                                     VerticalOptions="FillAndExpand"
+                                     ColumnSizer="Star"
+                                     AutoGenerateColumns="False"
+                                     AllowSorting="True">
+
+                        <syncfusion:SfDataGrid.Columns x:TypeArguments="syncfusion:Columns">
+                        <syncfusion:GridTextColumn HeaderText="ID" 
+                                   MappingName="Refer" HeaderFont="{StaticResource Roboto-Black}" />
+                        <syncfusion:GridTextColumn MappingName="Date" HeaderFont="{StaticResource Roboto-Black}"  />
+                        <syncfusion:GridTextColumn MappingName="Time" HeaderFont="{StaticResource Roboto-Black}"  />
+                        <syncfusion:GridTextColumn HeaderText="Product"
+                                   MappingName="Item" HeaderFont="{StaticResource Roboto-Black}" />
+                        <syncfusion:GridTextColumn MappingName="Location" HeaderFont="{StaticResource Roboto-Black}" />
+                        <syncfusion:GridTextColumn MappingName="Total" HeaderFont="{StaticResource Roboto-Black}" />
+                        </syncfusion:SfDataGrid.Columns>
+              </syncfusion:SfDataGrid>
+        </StackLayout>
+    </ContentView>-->
+
